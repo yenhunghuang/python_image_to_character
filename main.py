@@ -1,17 +1,17 @@
 from PIL import Image
 
-codeLib = '''@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''#生成字元畫所需的字符集
+codeLib = '''@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'.''' #生成字元畫所需的字符集
 count = len(codeLib)
 
-def transform1(image_file):
-    image_file = image_file.convert("L")#轉換為黑白圖片，引數"L"表示黑白模式
-    codePic = ''
-    for h in range(0,image_file.size[1]):  #size屬性表示圖片的解析度，'0'為橫向大小，'1'為縱向
-        for w in range(0,image_file.size[0]):
-            gray = image_file.getpixel((w,h)) #返回指定位置的畫素，如果所開啟的影象是多層次的圖片，那這個方法就返回一個元組
-            codePic = codePic + codeLib[int(((count-1)*gray)/256)]#建立灰度與字符集的對映
-        codePic = codePic+'\r\n'
-    return codePic
+# def transform1(image_file):
+#     image_file = image_file.convert("L")#轉換為黑白圖片，引數"L"表示黑白模式
+#     codePic = ''
+#     for h in range(0,image_file.size[1]):  #size屬性表示圖片的解析度，'0'為橫向大小，'1'為縱向
+#         for w in range(0,image_file.size[0]):
+#             gray = image_file.getpixel((w,h)) #返回指定位置的畫素，如果所開啟的影象是多層次的圖片，那這個方法就返回一個元組
+#             codePic = codePic + codeLib[int(((count-1)*gray)/256)]#建立灰度與字符集的對映
+#         codePic = codePic+'\r\n'
+#     return codePic
 
 def transform2(image_file):
     codePic = ''
