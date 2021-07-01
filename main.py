@@ -24,11 +24,12 @@ def transform2(image_file):
     return codePic
 
 
-fp = open('test2.jpg','rb')
+fp = open('test4.jpg','rb')
 image_file = Image.open(fp)
 image_file=image_file.resize((int(image_file.size[0]*0.09), int(image_file.size[1]*0.09)))#調整圖片大小
 print('Info:',image_file.size[0],' ',image_file.size[1],' ',count)
 
-tmp = open('tmp.txt','w')
+tmp = open('tmp3.txt','w')
 tmp.write(transform2(image_file))
 tmp.close()
+image_file.close()
